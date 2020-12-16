@@ -9,14 +9,11 @@ import {User} from '../app.component';
 export class ItemComponent implements OnInit {
 
   @Input() user: User;
-  @Output() onAdd: EventEmitter<User> = new EventEmitter<User>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  showUser() {
-    this.onAdd.emit(this.user);
-  }
+
 }

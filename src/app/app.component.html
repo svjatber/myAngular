@@ -1,9 +1,8 @@
-
-<app-item *ngFor="let user0 of Users" [user] = "user0"  (onAdd)="showUser($event)" >
+<li><a [routerLink]="['/']">Home</a></li>
+<li><a [routerLink]="['/admin']">Admin</a></li>
+<router-outlet></router-outlet>
+<app-item *ngFor="let user0 of Users" [user] = "user0">
 
 </app-item>
 
-<div *ngIf="user; else load">
-<h2>{{user.name}}</h2>
-</div>
-<ng-template #load><p>Loading</p></ng-template>
+

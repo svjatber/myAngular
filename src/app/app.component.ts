@@ -26,8 +26,5 @@ export class AppComponent implements OnInit{
        this.services.getUser().subscribe(users => this.Users = users);
     }
 
-  showUser(user: User) {
-    const id = user.id;
-    this.services.showUser(+id).subscribe(user0 => this.user = user0);
-  }
+
 }
