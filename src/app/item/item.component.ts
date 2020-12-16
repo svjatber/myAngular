@@ -8,8 +8,8 @@ import {User} from '../app.component';
 })
 export class ItemComponent implements OnInit {
 
-  @Input() user: User
-  @Output() onAdd: EventEmitter<User> = new EventEmitter<User>()
+  @Input() user: User;
+  @Output() onAdd: EventEmitter<User> = new EventEmitter<User>();
 
   constructor() { }
 
@@ -17,6 +17,6 @@ export class ItemComponent implements OnInit {
   }
 
   showUser() {
-    this.onAdd.emit(this.user)
+    this.onAdd.emit(this.user);
   }
 }

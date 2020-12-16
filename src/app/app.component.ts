@@ -1,8 +1,12 @@
 import {Component, OnInit} from '@angular/core';
+import {AppServices} from './app.services';
 
 export interface User{
   id: number,
-  name: string
+  name: string,
+  username: string,
+  email: string,
+  address?: number
 }
 
 @Component({
@@ -15,12 +19,15 @@ export class AppComponent implements OnInit{
   Users: User[];
   user: User | null = null;
 
+  constructor(private services: AppServices) {
+  }
+
     ngOnInit() {
-      this.Users = [{id: 1, name: 'Svjat'}, {id: 2, name: 'Loha'}, { id: 3, name: 'Solya'}];
+       this.services.getUser().subscribe(users => this.Users = users);
     }
 
   showUser(user: User) {
-    console.log('post', user);
-    this.user = user
+    const id = user.id;
+    this.services.showUser(+id).subscribe(user0 => this.user = user0);
   }
 }
